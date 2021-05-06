@@ -1,3 +1,9 @@
-* {
-    background: pink;
+body {
+    background: rgb(202, 191, 193);
 };
+
+/* I didn't manage to appy any styling */
+
+body.element {
+    font-size: 30px;
+}
