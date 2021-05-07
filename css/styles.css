@@ -1,9 +1,15 @@
 body {
     background: rgb(202, 191, 193);
+    
 };
 
-/* I didn't manage to appy any styling */
 
-body.element {
-    font-size: 30px;
+
+p {
+   
+}
+
+.poke-list {
+    color:rgb(49, 41, 35);
+    font-size: 25px;
 }

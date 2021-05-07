@@ -11,9 +11,9 @@ let pokemonList = [
 let text = "WOW! That's big!";
 for (let i=0; i< pokemonList.length; i++) {
    if (pokemonList[i].height > 1.2) {
-    document.write(`${pokemonList[i].name}: (Height: ${pokemonList[i].height} m, Types: "${pokemonList[i].type[0]}" and "${pokemonList[i].type[1]}") - ${text} <br>`)
+    document.write(`<p class="poke-list"> ${pokemonList[i].name}: (Height: ${pokemonList[i].height} m, Types: "${pokemonList[i].type[0]}" and "${pokemonList[i].type[1]} ) - ${text} </p>`)
     } else {
-    document.write(`${pokemonList[i].name}: (Height: ${pokemonList[i].height} m, Types: "${pokemonList[i].type[0]}" and "${pokemonList[i].type[1]}") <br>`)
+    document.write(`<p class="poke-list"> ${pokemonList[i].name}: (Height: ${pokemonList[i].height} m, Types: "${pokemonList[i].type[0]}" and "${pokemonList[i].type[1]})  </p>`)
     }
 }
 
