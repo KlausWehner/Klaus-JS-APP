@@ -1,15 +1,18 @@
-body {
+* {
     background: rgb(202, 191, 193);
     
-};
+}
+    
+
 
 
 
 p {
-   
+    color:rgb(133, 76, 33);
+    font-size: 40px;
+    font-weight: 800;
 }
 
-.poke-list {
-    color:rgb(49, 41, 35);
-    font-size: 25px;
-}
+
+
+
