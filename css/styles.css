@@ -1,19 +1,44 @@
 * {
-    background: rgb(202, 191, 193);
-    
+  background-color: rgb(182, 177, 173);
+font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+   
 }
-    
+   
 
 
+ .poke-button-class {
+   background-color: gray;
+   padding: 8px 10px;
+   font-size: 20px;
+   width: 70%;
+   border: 3px solid goldenrod;
+   border-radius: 10px;
+   margin: 2vh;
+   cursor: pointer;
+   text-transform: uppercase;
+   box-shadow: 8px 8px 15px #888888;
+   
+   
+ }
+
+ .pokemon-list {
+   list-style-type: none;
+   text-align: center;
+ }
+
+ .app-container {
+   text-align: center;
+   margin: 10vh auto;
+   padding: 8px 0;
+   width: 80%;
+   border: 3px solid goldenrod;
+   border-radius: 10px;
+   box-shadow: 8px 8px 15px #888888;
+
+ }
 
 
-p {
-    color:rgb(133, 76, 33);
-    font-size: 30px;
-    font-weight: 800;
-    padding: 3vh 0 0 4vw;
+h1 {
+ font-size: 25px;
+ font-weight: 200;
 }
-
-
-
-
