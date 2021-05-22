@@ -1,17 +1,11 @@
 let pokemonRepository = (function () {
-  let pokemonList = [
-                    {name: 'Kakuna', height: 0.6, type: ['bug', 'poison']},
-                    {name: 'Zubat', height: 0.8, type: ['poison', 'flying']},
-                    {name: 'Tentacruel', height: 1.6, type: ['water', 'poison']},
-                    {name: 'Yanma', height: 1.2, type: ['bug', 'flying']}
-                     ];
+  let pokemonList = [];
+  let apiUrl = 'https://pokeapi.co/api/v2/pokemon/?limit=150';
 
   function add(pokemon) {
     if (
       typeof pokemon === 'object' &&
-      'name' in pokemon &&
-      'height' in pokemon &&
-      'type' in pokemon
+      'name' in pokemon 
     ) {
       pokemonList.push(pokemon);
     } else {
@@ -23,9 +17,6 @@ let pokemonRepository = (function () {
     return pokemonList;
   }
 
-  function showDetails(pokemon) {
-    console.log(pokemon.name);
-  }
 
   function addListItem(pokemon) {
       let pokeList2 = document.querySelector('.pokemon-list');
@@ -41,11 +32,50 @@ let pokemonRepository = (function () {
        })
   }
 
+  function loadList() {
+    return fetch(apiUrl).then(function (response) {
+      return response.json();
+    }).then(function (json) {
+      json.results.forEach(function (item) {
+        let pokemon = {
+          name: item.name,
+          detailsUrl: item.url
+        };
+        add(pokemon);
+      });
+    }).catch(function (e) {
+      console.error(e);
+    })
+  }
+
+  function loadDetails(item) {
+    let url = item.detailsUrl;
+    return fetch(url).then(function (response) {
+      return response.json();
+    }).then(function (details) {
+      // Now we add the details to the item
+      item.imageUrl = details.sprites.front_default;
+      item.height = details.height;
+      item.types = details.types;
+    }).catch(function (e) {
+      console.error(e);
+    });
+  }
+
+  function showDetails(pokemon) {
+    loadDetails(pokemon).then(function () {
+      console.log(pokemon);
+    });
+  }
+
 
   return {
     add: add,
     getAll: getAll,
-    addListItem: addListItem
+    addListItem: addListItem,
+    loadList: loadList,
+    loadDetails: loadDetails,
+    showDetails: showDetails
   };
 })();  
 
@@ -54,7 +84,13 @@ let pokemonRepository = (function () {
 pokemonRepository.add({name: 'JavaScript', height: 100.7, type: ['monster', 'poison']});
 console.log(pokemonRepository.getAll());
 
-pokemonRepository.getAll().forEach(function (pokemon) {
+/*pokemonRepository.getAll().forEach(function (pokemon) {
 pokemonRepository.addListItem(pokemon);
+}); */
+
+pokemonRepository.loadList().then(function() {
+  // data is loaded
+  pokemonRepository.getAll().forEach(function(pokemon){
+    pokemonRepository.addListItem(pokemon);
+  });
 });
-                
