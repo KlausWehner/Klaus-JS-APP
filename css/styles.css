@@ -1,21 +1,32 @@
 body {
-  background-color: rgb(116, 113, 113);
+  background-color: var(--surround-backgr-color);
   font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;  
+  color: var(--font-color);
 }
-    
+
+:root {
+  --surround-backgr-color: rgb(24, 24, 23); /*background outside for large screens*/
+  --inner-backgr-color: rgb(168, 165, 165); /* background inside the display field*/
+  --inner-btn-backgr-color: rgb(150, 144, 144); /* background inside buttons*/
+  --border-color: #c7ba92; /* borders */
+  --font-color: rgb(64, 65, 64);
+  --main-font-weight: 500;
+}
 
 
   .poke-button-class {
-    background-color: gray;
+    background-color: var(--inner-btn-backgr-color);
     padding: 8px 10px;
     font-size: 20px;
     width: 70%;
-    border: 3px solid goldenrod;
+    border: 3px double var(--border-color);
     border-radius: 10px;
     margin: 2vh;
     cursor: pointer;
     text-transform: uppercase;
     box-shadow: 8px 8px 15px #888888;
+    color: inherit;
+    font-weight: var(--main-font-weight);
   }
 
 
@@ -28,19 +39,19 @@ body {
   }
 
   .app-container {
-    background-color: rgb(168, 165, 165);
+    background-color: var(--inner-backgr-color);
     text-align: center;
     margin: 10vh auto;
     padding: 10vh 0;
     width: 95vw;
-    border: 3px solid goldenrod;
+    border: 5px double var(--border-color);
     border-radius: 10px;
   }
 
 
 h1 {
   font-size: 25px;
-  font-weight: 200;
+  font-weight: var(--main-font-weight),
 }
 
 @media (min-width: 1025px) {
@@ -48,6 +59,6 @@ h1 {
     width: 40%;
   }
   body {
-    background-color: black;
+    background-color: var(--surround-backgr-color);
   }
 }
