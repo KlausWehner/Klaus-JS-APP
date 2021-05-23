@@ -17,11 +17,11 @@ let pokemonRepository = (function () {
     return pokemonList;
   }
 
-/*  function showLoadingMessage() {
+ function showLoadingMessage() {
     document.write('Data is loading...');
   }
 
-  function hideLoadingMessage() {
+  /* function hideLoadingMessage() {
     showLoadingMessage() {
       
     };
