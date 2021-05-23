@@ -17,6 +17,15 @@ let pokemonRepository = (function () {
     return pokemonList;
   }
 
+/*  function showLoadingMessage() {
+    document.write('Data is loading...');
+  }
+
+  function hideLoadingMessage() {
+    showLoadingMessage() {
+      
+    };
+  } */
 
   function addListItem(pokemon) {
       let pokeList2 = document.querySelector('.pokemon-list');
@@ -32,7 +41,9 @@ let pokemonRepository = (function () {
        })
   }
 
+
   function loadList() {
+    showLoadingMessage();
     return fetch(apiUrl).then(function (response) {
       return response.json();
     }).then(function (json) {

@@ -1,5 +1,5 @@
 body {
-  background-color: var(--surround-backgr-color);
+  background-color: var(--inner-backgr-color);
   font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;  
   color: var(--font-color);
 }
@@ -8,18 +8,18 @@ body {
   --surround-backgr-color: rgb(24, 24, 23); /*background outside for large screens*/
   --inner-backgr-color: rgb(168, 165, 165); /* background inside the display field*/
   --inner-btn-backgr-color: rgb(150, 144, 144); /* background inside buttons*/
-  --border-color: #c7ba92; /* borders */
+  --border-color: #b6a984; /* borders */
   --font-color: rgb(64, 65, 64);
   --main-font-weight: 500;
 }
 
 
   .poke-button-class {
-    background-color: var(--inner-btn-backgr-color);
+    background-color: var(--border-color);
     padding: 8px 10px;
     font-size: 20px;
     width: 70%;
-    border: 3px double var(--border-color);
+    border: 3px double var(--inner-backgr-color);
     border-radius: 10px;
     margin: 2vh;
     cursor: pointer;
@@ -32,7 +32,7 @@ body {
 
   .pokemon-list {
     list-style-type: none;
-    margin: 2vh auto;
+    margin: 2vh0 auto;
     padding: 0;
     
  
@@ -42,7 +42,7 @@ body {
     background-color: var(--inner-backgr-color);
     text-align: center;
     margin: 10vh auto;
-    padding: 10vh 0;
+    padding: 1vh 0;
     width: 95vw;
     border: 5px double var(--border-color);
     border-radius: 10px;
@@ -50,8 +50,13 @@ body {
 
 
 h1 {
-  font-size: 25px;
-  font-weight: var(--main-font-weight),
+  font-size: 40px;
+  font-weight: 900;
+  color: var(--border-color);
+  -webkit-text-stroke-width: 1px;
+  -webkit-text-stroke-color: var(--font-color);
+  
+
 }
 
 @media (min-width: 1025px) {
@@ -62,3 +67,9 @@ h1 {
     background-color: var(--surround-backgr-color);
   }
 }
+
+@media (max-width: 1025px) {
+  .app-container {
+    margin-top: 1vh;
+  }
+} 
