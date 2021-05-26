@@ -55,9 +55,66 @@ h1 {
   color: var(--border-color);
   -webkit-text-stroke-width: 1px;
   -webkit-text-stroke-color: var(--font-color);
-  
-
 }
+
+/* modal: */
+
+#modal-container {
+  position: fixed;
+  padding: 20px;
+  box-sizing: border-box;
+  top: 0;
+  left: 0;
+  width: 60%;
+  height: 60%;
+  background: yellow; 
+  z-index: 999; 
+  /* to allow scrolling if the screen is not high enough*/
+  overflow: auto; 
+  /* this is used to center the modal */
+  display: grid;
+  text-align: center;
+}
+
+/* merge with above?*/
+#modal-container {
+  display: none;
+}
+
+#show-modal {
+  display: block;
+}
+
+
+
+.modal {
+  margin: auto;
+  display: inline-block;
+  box-sizing: border-box;
+  background: green;
+  padding: 15px;
+  width: 100%;
+  /*max-width: 700px;*/
+  text-align: left;
+}
+
+.modal-close-btn {
+  float: right;
+  -webkit-appearance: none;
+  border: 0;
+  background: none;
+  color: rgb(5, 5, 5);
+  text-decoration: none;
+}
+
+.modal h1 {
+  margin-top: 0;
+}
+
+.modal p {
+  margin-bottom: 0;
+}
+
 
 @media (min-width: 1025px) {
   .app-container {
