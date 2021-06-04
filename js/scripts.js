@@ -72,13 +72,13 @@ let pokemonRepository = (function () {
 
   function showDetails(pokemon) {
     loadDetails(pokemon).then(function () {
-      console.log(pokemon);
+      showModal(pokemon.name, pokemon.height, pokemon.types, pokemon.imageUrl);
     });
   }
 
 
     // making the modal:
-  function showModal(name, height, types, pokeImage) {
+  function showModal(name, height, types, image) {
     // clear existing modal content
     modalContainer.innerHTML = '';
     
@@ -102,10 +102,14 @@ let pokemonRepository = (function () {
     contentElement.innerText = types;
 
     // the image in the modal:
-    let imgContainer = document.querySelector('#img-container');
+    let imgContainer = document.createElement('div');
+    imgContainer.classList.add('img-container')
+    //document.querySelector('#img-container');
     let pokeImage = document.createElement('img');
    
-    pokeImage.src = '';
+    pokeImage.src = image; // ?
+
+    // ?document.querySelector(pokeImage).setAttribute('src', '');
 
     imgContainer.appendChild(pokeImage);
     modal.appendChild(imgContainer);
@@ -124,10 +128,7 @@ let pokemonRepository = (function () {
     modalContainer.classList.remove('is-visible');
   }
   
-  // should open the modal on click:..
-  document.querySelector('.poke-button-class').addEventListener('click', function() {
-    showModal();
-  });
+
   
   // closes modal with escape key
   window.addEventListener('keydown', (e) => {

@@ -67,7 +67,7 @@ h1 {
   left: 0;
   width: 60%;
   height: 60%;
-  background: yellow; 
+  background: rgb(231, 231, 90); 
   z-index: 999; 
   /* to allow scrolling if the screen is not high enough*/
   overflow: auto; 
@@ -76,12 +76,16 @@ h1 {
   text-align: center;
 }
 
-/* merge with above?*/
+/* wrong
 #modal-container {
   display: none;
 }
 
 #show-modal {
+  display: block;
+} */
+
+#modal-container.is-visible {
   display: block;
 }
 
@@ -109,6 +113,7 @@ h1 {
 
 .modal h1 {
   margin-top: 0;
+  text-transform: uppercase;
 }
 
 .modal p {
