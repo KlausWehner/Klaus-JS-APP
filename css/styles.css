@@ -76,14 +76,12 @@ h1 {
   text-align: center;
 }
 
-/* wrong
+
 #modal-container {
   display: none;
 }
 
-#show-modal {
-  display: block;
-} */
+
 
 #modal-container.is-visible {
   display: block;
