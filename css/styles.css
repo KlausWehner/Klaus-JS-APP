@@ -1,6 +1,6 @@
 body {
   background-color: var(--inner-backgr-color);
-  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;  
+  font-family: 'Seymour One', sans-serif; 
   color: var(--font-color);
 }
 
@@ -14,10 +14,10 @@ body {
 }
 
 
-  .poke-button-class {
+  .list-group-item .btn {
     background-color: var(--border-color);
     padding: 8px 10px;
-    font-size: 20px;
+    font-size: calc(1.2rem + .8vw);
     width: 70%;
     border: 3px double var(--inner-backgr-color);
     border-radius: 10px;
@@ -29,13 +29,21 @@ body {
     font-weight: var(--main-font-weight);
   }
 
+ 
 
-  .pokemon-list {
+  .list-group-item {
+    background-color: var(--inner-backgr-color);
+    border: none;
+  }
+
+  .list-group-item:hover {
+    background-color: var(--inner-backgr-color);
+  }
+
+  .list-group {
     list-style-type: none;
     margin: 2vh0 auto;
     padding: 0;
-    
- 
   }
 
   .app-container {
@@ -50,94 +58,47 @@ body {
 
 
 h1 {
-  font-size: 40px;
+  font-size: calc(2rem + 3.3vw);
   font-weight: 900;
   color: var(--border-color);
   -webkit-text-stroke-width: 1px;
   -webkit-text-stroke-color: var(--font-color);
 }
 
-/* modal: */
 
-#modal-container {
-  position: fixed;
-  padding: 3vw;
-  box-sizing: border-box;
-  top: 20%;
-  left: 20%;
-  width: 60%;
-  background: rgb(197, 197, 116); 
-  z-index: 999; 
-  /* to allow scrolling if the screen is not high enough*/
-  overflow: auto; 
-  /* this is used to center the modal */
-  display: grid;
-  text-align: center;
+
+.modal-header h1 {
   text-transform: uppercase;
-  border: 5px double var(--border-color);
-  border-radius: 10px;
+  font-size: calc(1rem + 1vw);
+  
 }
-
-
-
-
-#modal-container {
-  display: none;
-}
-
-
-
-#modal-container.is-visible {
-  display: block;
-}
-
-
 
 .modal {
-  margin: auto;
-  display: inline-block;
-  box-sizing: border-box;
-  background: rgb(197, 197, 116);  
-  padding: 1vw;
-  width: 100%;
-  /*max-width: 700px;*/
-  text-align: center;
+  background-color: rgba(181, 184, 179, 0.2);
 }
 
-.modal-close-btn {
-  float: right;
-  -webkit-appearance: none;
-  border: 0;
-  margin-top: 0;
-  background: none;
-  color: rgb(5, 5, 5);
-  text-decoration: none;
+.modal-content {
+  background-color: var(--border-color);
 }
 
-.modal h1 {
-  margin-top: 0;
-  text-transform: uppercase;
+.modal-header .modal-footer {
+  background-color: var(--inner-btn-backgr-color);
 }
 
-.modal p {
-  margin-bottom: 0;
-}
-
-
-@media (max-width: 600px) {
-  #modal-container {
-    width: 90%;
-    left: 5%;
-  }
-  .modal h1 {
-    margin-top: 0;
-    font-size: 2em;
+@media (max-width: 800px) {
+  .list-group-item .btn {
+    font-size: calc(1rem + .8vw);
+    width: 85%;
+    
   }
 }
+
+
+
 
 @media (min-width: 1025px) {
   .app-container {
-    width: 40%;
+    width: 50%;
   }
   body {
     background-color: var(--surround-backgr-color);

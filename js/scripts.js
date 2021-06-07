@@ -1,19 +1,19 @@
 let pokemonRepository = (function () {
-  let modalContainer = document.querySelector('#modal-container'); //was set up in html added here globally
+
   let pokemonList = [];
-  // load the API URL:
+  
   let apiUrl = 'https://pokeapi.co/api/v2/pokemon/?limit=150';
 
   //function to add a pokemon object to the list (with conditions):
   function add(pokemon) {
-    if (
-      typeof pokemon === 'object' &&
-      'name' in pokemon 
-    ) {
-      pokemonList.push(pokemon);
-    } else {
-      console.log("Input not correct");
-    }
+      if (
+        typeof pokemon === 'object' &&
+        'name' in pokemon 
+      ) {
+        pokemonList.push(pokemon);
+      } else {
+        console.log("Input not correct");
+      }
   }
 
   // gets all the data from the API pokemonList[]
@@ -21,13 +21,17 @@ let pokemonRepository = (function () {
     return pokemonList;
   }
 
-  // DOM-create each item to a li in a button with a class: 
+  
   function addListItem(pokemon) {
-      let pokeList2 = document.querySelector('.pokemon-list'); //selects the ul by the class as added to html
+      let pokeList2 = document.querySelector('.list-group'); //selects the ul by the bootstrap class as added to html
       let pokeListItem = document.createElement('li'); 
+      pokeListItem.classList.add('list-group-item', 'list-group-item-action'); //bootstrap class ..action??
+
       let button = document.createElement('button');
       button.innerText = pokemon.name;
-      button.classList.add('poke-button-class'); //class DOM-added here - no dot - styled in CSS
+      button.classList.add('btn', 'btn-outline-dark');
+      button.setAttribute('data-target', '#pokemonModal', 'data-toggle', 'modal'); // ????
+     
       pokeListItem.appendChild(button); //button attached to li item
       pokeList2.appendChild(pokeListItem); // list li attached to main list -pokeList2 as defined above
       // add event listener to button:
@@ -77,81 +81,41 @@ let pokemonRepository = (function () {
   }
 
 
-    // making the modal:
   function showModal(name, height, types, image) {
-    // clear existing modal content
-    modalContainer.innerHTML = '';
- 
-    
-    //DOM-creates a div class="modal" inside modal-container
-    let modal = document.createElement('div');
-    modal.classList.add('modal');
-    
-    // Add the new modal content
-    let closeButtonElement = document.createElement('button');
-    closeButtonElement.classList.add('modal-close-btn');
-    closeButtonElement.innerText = ' CLOSE';
-    closeButtonElement.addEventListener('click', hideModal);
-    
-    let titleElement = document.createElement('h1');
-    titleElement.innerText = name;
-    
-    let typeNames = [];
 
+    let modalBody = $(".modal-body"); // references classes as in html copied from bootstrap
+    let modalTitle = $(".modal-title");
+    
+
+    modalTitle.empty();
+    modalBody.empty();
+
+
+    let titleElement = $('<h1>' + name + '</h1>');
+    
+    let imageElement = $('<img class="modal-img" style="width 40%">'); // where is modal-img from?
+    imageElement.attr("src", image); //is 'image' defined in my loadDetails showModal line 79??
+
+    let heightElement = $("<p>" + "HEIGHT: " + height + "</p>");
+        
+    let typeNames = [];
     types.forEach(function (typeObject) {
-      typeNames.push(typeObject.type.name);
+    typeNames.push(typeObject.type.name);
     });
 
-    let contentElement = document.createElement('p');
-    contentElement.innerText = "HEIGHT: " + height;
+    let typesElement = $("<p>" + "TYPES: " + typeNames + "</p>");
     
-    let contentElement2 = document.createElement('p');
-    contentElement2.innerText = "TYPES: " + typeNames;
+    modalTitle.append(titleElement);
+    modalBody.append(imageElement);
+    modalBody.append(heightElement);
+    modalBody.append(typesElement);
 
-    // the image in the modal:
-    let imgContainer = document.createElement('div');
-    imgContainer.classList.add('img-container')
-    let pokeImage = document.createElement('img');
-   
-    pokeImage.src = image; // ?
+    $('#pokemonModal').modal('toggle');  //???
+  };
 
-    // ?document.querySelector(pokeImage).setAttribute('src', '');
-
-    imgContainer.appendChild(pokeImage);
-    modal.appendChild(closeButtonElement);
-    modal.appendChild(imgContainer);
-   
-
-   
-    modal.appendChild(titleElement);
-    modal.appendChild(contentElement);
-    modal.appendChild(contentElement2);
-    modalContainer.appendChild(modal);
     
-    modalContainer.classList.add('is-visible');
-  }
-  
-  function hideModal() {
-    modalContainer.classList.remove('is-visible');
-  }
-  
+   
 
-  
-  // closes modal with escape key
-  window.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape' && modalContainer.classList.contains('is-visible')) {
-      hideModal();  
-    }
-  });
-  
-  modalContainer.addEventListener('click', (e) => {
-    // Since this is also triggered when clicking INSIDE the modal container,
-    // We only want to close if the user clicks directly on the overlay
-    let target = e.target;
-    if (target === modalContainer) {
-      hideModal();
-    }
-  });
 
   return {
     add: add,
@@ -164,13 +128,7 @@ let pokemonRepository = (function () {
 })();  
 
 
-/*pokemonRepository.add('KAKINI');
-pokemonRepository.add({name: 'JavaScriptTEST', height: 100.7, type: ['monster', 'poison']});
-console.log(pokemonRepository.getAll()); */
 
-/*pokemonRepository.getAll().forEach(function (pokemon) {
-pokemonRepository.addListItem(pokemon);
-}); */
 
 pokemonRepository.loadList().then(function() {
   // data is loaded
