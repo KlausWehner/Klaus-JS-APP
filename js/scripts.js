@@ -111,7 +111,6 @@ let pokemonRepository = (function () {
     // the image in the modal:
     let imgContainer = document.createElement('div');
     imgContainer.classList.add('img-container')
-    //document.querySelector('#img-container');
     let pokeImage = document.createElement('img');
    
     pokeImage.src = image; // ?
@@ -119,10 +118,11 @@ let pokemonRepository = (function () {
     // ?document.querySelector(pokeImage).setAttribute('src', '');
 
     imgContainer.appendChild(pokeImage);
+    modal.appendChild(closeButtonElement);
     modal.appendChild(imgContainer);
    
 
-    modal.appendChild(closeButtonElement);
+   
     modal.appendChild(titleElement);
     modal.appendChild(contentElement);
     modal.appendChild(contentElement2);
