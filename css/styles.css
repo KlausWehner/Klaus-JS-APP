@@ -61,19 +61,19 @@ h1 {
 
 #modal-container {
   position: fixed;
-  padding: 20px;
+  padding: 3vw;
   box-sizing: border-box;
-  top: 0;
-  left: 0;
+  top: 20%;
+  left: 20%;
   width: 60%;
-  height: 60%;
-  background: rgb(231, 231, 90); 
+  background: rgb(226, 226, 125); 
   z-index: 999; 
   /* to allow scrolling if the screen is not high enough*/
   overflow: auto; 
   /* this is used to center the modal */
   display: grid;
   text-align: center;
+  text-transform: uppercase;
 }
 
 
@@ -93,11 +93,11 @@ h1 {
   margin: auto;
   display: inline-block;
   box-sizing: border-box;
-  background: green;
-  padding: 15px;
+  background: rgb(226, 226, 125); 
+  padding: 1vw;
   width: 100%;
   /*max-width: 700px;*/
-  text-align: left;
+  text-align: center;
 }
 
 .modal-close-btn {

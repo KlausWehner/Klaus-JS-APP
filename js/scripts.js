@@ -81,7 +81,7 @@ let pokemonRepository = (function () {
   function showModal(name, height, types, image) {
     // clear existing modal content
     modalContainer.innerHTML = '';
-    //modalContainer.classList.add('modal');
+ 
     
     //DOM-creates a div class="modal" inside modal-container
     let modal = document.createElement('div');
@@ -90,17 +90,23 @@ let pokemonRepository = (function () {
     // Add the new modal content
     let closeButtonElement = document.createElement('button');
     closeButtonElement.classList.add('modal-close-btn');
-    closeButtonElement.innerText = 'X';
+    closeButtonElement.innerText = ' CLOSE';
     closeButtonElement.addEventListener('click', hideModal);
     
     let titleElement = document.createElement('h1');
     titleElement.innerText = name;
     
+    let typeNames = [];
+
+    types.forEach(function (typeObject) {
+      typeNames.push(typeObject.type.name);
+    });
+
     let contentElement = document.createElement('p');
-    contentElement.innerText = height;
+    contentElement.innerText = "HEIGHT: " + height;
     
     let contentElement2 = document.createElement('p');
-    contentElement.innerText = types;
+    contentElement2.innerText = "TYPES: " + typeNames;
 
     // the image in the modal:
     let imgContainer = document.createElement('div');
@@ -158,9 +164,9 @@ let pokemonRepository = (function () {
 })();  
 
 
-//pokemonRepository.add('KAKINI');
+/*pokemonRepository.add('KAKINI');
 pokemonRepository.add({name: 'JavaScriptTEST', height: 100.7, type: ['monster', 'poison']});
-console.log(pokemonRepository.getAll());
+console.log(pokemonRepository.getAll()); */
 
 /*pokemonRepository.getAll().forEach(function (pokemon) {
 pokemonRepository.addListItem(pokemon);
