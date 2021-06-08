@@ -18,7 +18,7 @@ body {
     background-color: var(--border-color);
     padding: 8px 10px;
     font-size: calc(1.2rem + .8vw);
-    width: 70%;
+    width: 90%;
     border: 3px double var(--inner-backgr-color);
     border-radius: 10px;
     margin: 2vh;
@@ -40,6 +40,10 @@ body {
     background-color: var(--inner-backgr-color);
   }
 
+  .list-group-item:active {
+    background-color: var(--inner-backgr-color);
+  }
+
   .list-group {
     list-style-type: none;
     margin: 2vh0 auto;
@@ -58,7 +62,7 @@ body {
 
 
 h1 {
-  font-size: calc(2rem + 3.3vw);
+  font-size: calc(2rem + 3vw);
   font-weight: 900;
   color: var(--border-color);
   -webkit-text-stroke-width: 1px;
@@ -79,16 +83,18 @@ h1 {
 
 .modal-content {
   background-color: var(--border-color);
+  border: 3px double var(--inner-backgr-color);
+  border-radius: 10px;
 }
 
-.modal-header .modal-footer {
+.modal-header {
   background-color: var(--inner-btn-backgr-color);
 }
 
 @media (max-width: 800px) {
   .list-group-item .btn {
     font-size: calc(1rem + .8vw);
-    width: 85%;
+    width: 95%;
     
   }
 }
