@@ -111,12 +111,9 @@ let pokemonRepository = (function () {
     modalBody.append(typesElement);
 
     $('#pokemonModal').modal('toggle');  //???
-  };
+  }
 
-    
    
-
-
   return {
     add: add,
     getAll: getAll,
